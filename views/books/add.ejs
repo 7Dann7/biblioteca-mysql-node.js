@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Add Book</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+	<link href="/src/output.css" rel="stylesheet">
+
+
+</head>
+<body class=" bg-gray-50 dark:bg-gray-900 max-w-xl mx-auto mt-12 pt-36">
+
+    <!-- Navbar -->
+  <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 my-16">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="https://img.freepik.com/vector-premium/logotipo-libro-o-biblioteca-librerias-empresas-editoriales-editores-enciclopedias-bibliotecas-educacion_661040-9761.jpg?w=360" class="h-8" alt="Logo" />
+        <span class="self-center text-2xl font-semibold whitespace-nowrap text-yellow-400">RAYMBOW</span><span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">LIBRARY</span>
+      </a>
+      <div class="flex md:order-2">
+        <button data-collapse-toggle="navbar-sticky" type="button" class="ml-2 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700" aria-controls="navbar-sticky" aria-expanded="false">
+          <span class="sr-only">Menu</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+        <ul class="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 text-sm font-medium">
+          <li><a href="/books" class="block py-2 px-3 text-blue-700">INICIO</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+    <% if (messages.error) { %>
+    <div class="mb-4">
+        <div class="bg-red-100 text-red-800 text-sm font-medium px-4 py-3 rounded-lg dark:bg-red-200 dark:text-red-900" role="alert">
+            <%- messages.error %>
+        </div>
+    </div>
+    <% } %>
+
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 text-lg font-semibold text-gray-800 dark:text-white">
+            Agregar Libro
+        </div>
+        <div class="p-6">
+            <form action="/books/add" method="post" class="space-y-4">
+                <div>
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre:</label>
+                    <input type="text" id="name" name="name" value="<%= name %>" autocomplete="off"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                </div>
+                <div>
+                    <label for="author" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Autor:</label>
+                    <input type="text" id="author" name="author" value="<%= author %>" autocomplete="off"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                </div>
+                <div>
+                    <input type="submit" value="Agregar"
+                           class="text-white bg-cyan-600 hover:bg-cyan-700 font-medium rounded-lg text-sm px-5 py-2.5 cursor-pointer dark:bg-cyan-500 dark:hover:bg-cyan-600">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</html>
